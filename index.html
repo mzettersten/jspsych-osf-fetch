@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>OSF data fetch</title>
+  <script src="https://unpkg.com/jspsych@8.0.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-survey-text@2.0.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.0.0"></script>
+  <link href="https://unpkg.com/jspsych@8.0.0/css/jspsych.css" rel="stylesheet" type="text/css" />
+  <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
+  <script src="fetch-osf.js"></script>
+</head>
+
+<body></body>
+<script>
+
+  /* initialize jsPsych */
+  var jsPsych = initJsPsych({
+    on_finish: function () {
+      jsPsych.data.displayData();
+    }
+  });
+
+  fetchData('https://osf.io/download/6824e35d2e9f447ca7eadfb0/');
+
+  /* create timeline */
+  var timeline = [];
+
+  // Define welcome message trial
+  var welcome = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: "Loading the experiment"
+  };
+
+  // Add the welcome trial to the timeline variable
+  timeline.push(welcome);
+
+  /* start the experiment */
+  jsPsych.run(timeline);
+
+</script>
+
+</html>
