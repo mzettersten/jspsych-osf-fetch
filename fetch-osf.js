@@ -2,6 +2,9 @@ async function fetchData(url) {
     const response = await fetch(url,
         {
             mode: "cors",
+            headers: {
+                'Content-Type': 'application/vnd.api+json'
+            }
             //headers: {
             //    "Access-Control-Allow-Origin": '*'
             //}
