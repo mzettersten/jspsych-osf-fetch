@@ -2,9 +2,9 @@ async function fetchData(url) {
     const response = await fetch(url,
         {
             mode: "cors",
-            headers: {
-                "Access-Control-Allow-Origin": '*'
-            }
+            //headers: {
+            //    "Access-Control-Allow-Origin": '*'
+            //}
         }
     );
     const result = await response.json();
